@@ -77,6 +77,10 @@ h1{
     margin: 5px;
 }
 
+.info-container div{
+    
+}
+
 .info{
     padding: 10px;
 }
@@ -196,6 +200,7 @@ tr td div {
 
 .order-now{
     margin-top: 10px;
+    margin-bottom: 10px;
     background-color: white;
     -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
@@ -212,6 +217,7 @@ tr td div {
     font-size: large;
 }
 
+
 .remove-item{
     margin-top: 10px;
     background-color: white;
@@ -225,6 +231,29 @@ tr td div {
 }
 
 .remove-item:hover{
+    cursor: pointer;
+    transform: scale(1);
+    font-size: large;
+}
+
+add_to_cart {
+
+}
+
+.add_to_cart{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    border: none;
+    padding: 10px 80px;
+    transition: all .2s;
+    border-radius: 4px;
+}
+
+.add_to_cart:hover{
     cursor: pointer;
     transform: scale(1);
     font-size: large;
