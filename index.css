@@ -1,0 +1,231 @@
+body{
+    z-index: 0;
+    background-color: lightcoral;
+    overflow: auto;
+}
+
+span{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.container{
+    text-align: center;
+    background-color: khaki;
+    padding: 10px;
+    z-index: 1;
+    position: relative;
+}
+
+.title-container{
+    background-color: hotpink;
+}
+
+h1{
+    background-color: honeydew;
+    padding: 10px;
+    width: 60%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: inline-block;
+}
+
+.checkout-btn{
+    background-color: grey;
+    padding: 10px 15px;
+    border: none;
+    display: inline-block;
+    border-radius: 2px;
+    margin-left: 100px;
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.checkout-btn:hover{
+    background-color: khaki;
+}
+
+.items-Container{
+    background-color: lightblue;
+    width: 300px;
+    height: 400px;
+    overflow: auto;
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+}
+
+.image-Container{
+    background-color: olive;
+    width: 290px;
+    height: 200px;
+    display: block;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.info-container{
+    background-color: gray;
+    width: 290px;
+    height: 150px;
+    display: block;
+    margin: 5px;
+}
+
+.info{
+    padding: 10px;
+}
+
+.popup-container{
+    background-color: khaki;
+    width: 50%;
+    height: 400px;
+    text-align: center;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: 3;
+    top: 10%;
+    position: fixed;
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    visibility: hidden;
+    opacity: 0;
+    overflow: auto;
+    transition: all .5s;
+}
+@media only screen and (max-width: 700px){
+    .popup-container{
+        width: 90%;
+    }
+}
+
+.avatar{
+    height: inherit;
+    width: auto;
+}
+
+.popup_back-Container{
+    background-color: grey;
+    opacity: 0.5;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    visibility: hidden;
+    position: fixed;
+}
+
+.babage{
+    background-color: black;
+    color: white;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: -5;
+    right: -5;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.picked-items{
+    background-color: brown;
+    width: 100%;
+    overflow: auto;
+}
+
+.picked-item{
+    padding: 10px;
+
+}
+
+table {
+    text-align: center;
+    background-color: orange;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: inherit;
+    transition: all 1s;
+    border-collapse: collapse;
+}
+
+tr {
+    transition: all 1s;
+}
+
+td {
+    background-color: orchid;
+    width: 80px;
+    border: 1px solid black;
+}
+
+tr td {
+    padding: 0;
+}
+
+tr td div {
+    max-height: 0;
+    overflow: hidden;
+    transition: all .5s;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.active td div{
+    max-height: 100px;
+    max-height: 100px;
+    padding: 10px 10px;
+    transition: all 1s;
+}
+
+
+.totals-table{
+    margin-top: 10px;
+}
+
+.totals-table tr td {
+    padding: 10px 40px;
+}
+
+.order-now{
+    margin-top: 10px;
+    background-color: white;
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    border: none;
+    padding: 10px 80px;
+    transition: all .2s;
+    border-radius: 4px;
+}
+
+.order-now:hover{
+    cursor: pointer;
+    transform: scale(1);
+    font-size: large;
+}
+
+.remove-item{
+    margin-top: 10px;
+    background-color: white;
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    border: none;
+    padding: 5px 10px;
+    transition: all .2s;
+    border-radius: 4px;
+}
+
+.remove-item:hover{
+    cursor: pointer;
+    transform: scale(1);
+    font-size: large;
+}
