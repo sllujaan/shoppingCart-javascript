@@ -1,6 +1,5 @@
 body{
     z-index: 0;
-    background-color: lightcoral;
     overflow: auto;
 }
 
@@ -9,16 +8,21 @@ span{
     margin-right: 20px;
 }
 
+h1{
+    background-color: green;
+}
+
 .container{
     text-align: center;
-    background-color: khaki;
     padding: 10px;
     z-index: 1;
     position: relative;
 }
 
 .title-container{
-    background-color: hotpink;
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
 }
 
 h1{
@@ -30,9 +34,9 @@ h1{
     margin: auto;
     display: inline-block;
 }
-
+/*
 .checkout-btn{
-    background-color: grey;
+    background-color: white;
     padding: 10px 15px;
     border: none;
     display: inline-block;
@@ -49,19 +53,44 @@ h1{
 .checkout-btn:hover{
     background-color: khaki;
 }
+*/
+
+.checkout-btn{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: orangered;
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    border: none;
+    padding: 10px 80px;
+    transition: all .2s;
+    border-radius: 4px;
+}
+
+.checkout-btn:hover{
+    cursor: pointer;
+    transform: scale(1);
+    font-size: large;
+}
+
 
 .items-Container{
-    background-color: lightblue;
+    background-color: white;
     width: 300px;
-    height: 400px;
+    height: 380px;
     overflow: auto;
     display: inline-block;
     padding: 10px;
     margin: 5px;
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    border-radius: 4px;
+    transition: all 1s;
 }
 
 .image-Container{
-    background-color: olive;
     width: 290px;
     height: 200px;
     display: block;
@@ -70,15 +99,20 @@ h1{
 }
 
 .info-container{
-    background-color: gray;
     width: 290px;
     height: 150px;
     display: block;
     margin: 5px;
 }
 
+
+.items-Container:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 .info-container div{
-    
+    color: black; font-family: 'Rouge Script', cursive; font-size: 21px; font-weight: normal; line-height: 18px;  text-align: center; text-shadow: 1px 1px 2px #082b34;
 }
 
 .info{
@@ -86,9 +120,9 @@ h1{
 }
 
 .popup-container{
-    background-color: khaki;
+    background-color: white;
     width: 50%;
-    height: 400px;
+    height: 600px;
     text-align: center;
     right: 0;
     left: 0;
@@ -103,7 +137,9 @@ h1{
     opacity: 0;
     overflow: auto;
     transition: all .5s;
+    border-radius: 4px;
 }
+
 @media only screen and (max-width: 700px){
     .popup-container{
         width: 90%;
@@ -139,7 +175,6 @@ h1{
 }
 
 .picked-items{
-    background-color: brown;
     width: 100%;
     overflow: auto;
 }
@@ -151,23 +186,25 @@ h1{
 
 table {
     text-align: center;
-    background-color: orange;
     left: 0;
     right: 0;
     margin: auto;
     width: inherit;
     transition: all 1s;
     border-collapse: collapse;
+
 }
 
 tr {
     transition: all 1s;
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
 }
 
 td {
-    background-color: orchid;
     width: 80px;
-    border: 1px solid black;
+    border-bottom: 2px solid white;
 }
 
 tr td {
@@ -201,7 +238,7 @@ tr td div {
 .order-now{
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: white;
+    background-color: orange;
     -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
@@ -220,7 +257,8 @@ tr td div {
 
 .remove-item{
     margin-top: 10px;
-    background-color: white;
+    color: white;
+    background-color: red;
     -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
@@ -236,14 +274,10 @@ tr td div {
     font-size: large;
 }
 
-add_to_cart {
-
-}
-
 .add_to_cart{
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: white;
+    background-color: orange;
     -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
