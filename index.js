@@ -89,7 +89,7 @@ function getItemsContainer({id, name, price, imgSrc}){
                     </div>
                     <div class="info-container" id="${id}">
                     <div class="info">Name: ${name}</div>
-                    <div class="info">price: ${price}</div>
+                    <div class="info">price: ${price}$</div>
                     <div class="info"><button class="add_to_cart">Add To Cart!</button></div>
                     </div>`
     items_container.innerHTML = content
@@ -198,7 +198,7 @@ function generatePickedItemElement(index, {id, name , price, quantity}){
     table_row.classList.add("active")
     var content = `<td><div>${index}</div></td>
                             <td><div>${name}</div></td>
-                            <td><div>${price}</div></td>
+                            <td><div>${price}$</div></td>
                             <td><div><input id="${id}" class="quantity" name="quantity" type="number" value="${quantity}" min="1" max="${getProductById(id).quantity}" onChange="onQuantityChange(event)" style="width: 40px;"></td>
                             </div><td>
                             <div><button id="${id}" class="remove-item">remove</button></div>
@@ -281,6 +281,7 @@ document.addEventListener('click', (event) => {
         popup_container_background.style.visibility = "hidden"
     }
 
+    /*
     if(event.target.name == "add"){
         var babage = document.getElementsByClassName('babage')[0]
         var num = parseInt(babage.innerText)
@@ -293,6 +294,7 @@ document.addEventListener('click', (event) => {
         var picked_items = document.getElementsByClassName("picked-items")[0]
         picked_items.append(elem)
     }
+    */
     
 })
 
@@ -360,6 +362,7 @@ function updateTotalItems() {
     total_items.innerText = total
 }
 */
+
 
 function updateTotalItems(event) {
     console.log(event)
@@ -463,7 +466,7 @@ function updateTotalPrice(){
     }
     
     totalPrice = Math.round(totalPrice * 100) / 100
-    total_price.innerText = totalPrice
+    total_price.innerText = totalPrice + "$"
 }
 
 
@@ -549,9 +552,6 @@ console.log(products2)
 function hideCheckOut(){
     document.getElementById("background").click()
 }
-
-
-
 
 
 

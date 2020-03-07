@@ -160,6 +160,22 @@ h1{
         width: 90%;
     }
 }
+@media only screen and (min-width: 700px) and (max-width: 800px){
+    .popup-container{
+        width: 80%;
+    }
+}
+@media only screen and (min-width: 800px) and (max-width: 900px){
+    .popup-container{
+        width: 70%;
+    }
+}
+@media only screen and (min-width: 900px) and (max-width: 1000px){
+    .popup-container{
+        width: 60%;
+    }
+}
+
 
 .avatar{
     height: inherit;
