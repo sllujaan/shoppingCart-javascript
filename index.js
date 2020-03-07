@@ -1,10 +1,21 @@
 const products = [
-        {"id": 1, "name": "Wheat", "price": 2.35, "quantity": 5, imgSrc:"Heads-wheat-grains.jpg"},
-        {"id": 2, "name": "Mango", "price": 3.5, "quantity": 10, imgSrc:"mangoes-chopped-and-fresh.jpg"},
-        {"id": 3, "name": "Bread", "price": 5.5, "quantity": 10, imgSrc:"yeast bread.jpg"},
-        {"id": 4, "name": "vegetables", "price": 7.4, "quantity": 10, imgSrc:"intro_cream_of_crop.jpg"},
-        {"id": 5, "name": "oranges", "price": 1.7, "quantity": 10, imgSrc:"darling-oranges-1.png"}
-        ];
+    {"id": 1, "name": "Wheat", "price": 2.35, "quantity": 5, imgSrc:"Heads-wheat-grains.jpg"},
+    {"id": 2, "name": "Mango", "price": 3.5, "quantity": 10, imgSrc:"mangoes-chopped-and-fresh.jpg"},
+    {"id": 3, "name": "Bread", "price": 5.5, "quantity": 10, imgSrc:"yeast bread.jpg"},
+    {"id": 4, "name": "vegetables", "price": 7.4, "quantity": 10, imgSrc:"intro_cream_of_crop.jpg"},
+    {"id": 6, "name": "oranges", "price": 1.7, "quantity": 10, imgSrc:"darling-oranges-1.png"},
+    {"id": 7, "name": "Apples", "price": 10.7, "quantity": 50, imgSrc:"China-fresh-gala-fruit-apple-exporter.jpg"},
+    {"id": 8, "name": "Avocados", "price": 2.0, "quantity": 10, imgSrc:"Avocad0-CD.jpg"},
+    {"id": 9, "name": "Bananas", "price": 1.0, "quantity": 10, imgSrc:"61fZ+YAYGaL._SL1500_.jpg"},
+    {"id": 10, "name": "Blueberries", "price": 11, "quantity": 10, imgSrc:"blueberries-1296x728-feature.jpg"},
+    {"id": 11, "name": "Strawberries", "price": 4, "quantity": 10, imgSrc:"strawberry-.jpg"},
+    {"id": 12, "name": "Eggs", "price": 20, "quantity": 10, imgSrc:"health-benefits-of-eggs-1296x728-feature.jpg"},
+    {"id": 13, "name": "Lean beef", "price": 50, "quantity": 10, imgSrc:"Tri-Tip_Denuded.jpg"},
+    {"id": 14, "name": "Chicken breasts", "price": 25, "quantity": 10, imgSrc:"raw-boneless-chicken-breasts-500x500.jpg"},
+    {"id": 15, "name": "Almonds", "price": 85, "quantity": 10, imgSrc:"full-frame-shot-of-raw-almonds-royalty-free-image-683814187-1537885519.jpg"}
+];
+
+console.log(products)
 
 var selected_items = [];
 const ITEMS_KEY = "products.key";
@@ -137,10 +148,14 @@ function isCartEmpty(){
     selected_items = JSON.parse(localStorage.getItem(ITEMS_KEY))
     console.log(selected_items)
 
-    if(selected_items.length == 0){
+    if(selected_items){
         //document.getElementsByClassName("order-now")[0].disabled = true
         //alert("disable place order")
-        return true
+        if(selected_items.length == 0){
+            return true
+        }else{
+            return false
+        }
     }
     else{
         return false
@@ -203,7 +218,7 @@ document.addEventListener('click', (event) => {
     if(event.target.className == "add_to_cart") {
         
         var parent = event.target.parentElement.parentElement
-        
+        console.log(parent)
         var id = parseInt(parent.getAttribute("id"))
         var product = getProductById(id)
         console.log(product)
@@ -246,6 +261,9 @@ document.addEventListener('click', (event) => {
         setTimeout(() => {
             productRow.remove()
             console.log(isCartEmpty())
+            if(isCartEmpty()){
+                hideCheckOut()
+            }
         }, 500);
 
         updateTotalItems(event)
@@ -298,15 +316,21 @@ function getTotalItems(){
 function getTotalItemsLocalStorage() {
     var totalItems = 0 
     selected_items = JSON.parse(localStorage.getItem(ITEMS_KEY))
-    selected_items.forEach(product => {
-        totalItems += product.quantity
-    })
-    return totalItems
+    if(selected_items){
+        selected_items.forEach(product => {
+            totalItems += product.quantity
+        })
+        return totalItems
+    }
+    
 }
 
 function getItemsLocalStorage() {
     selected_items = JSON.parse(localStorage.getItem(ITEMS_KEY))
-    return selected_items.length
+    if(selected_items){
+        return selected_items.length
+    }
+    
 }
 
 /*
@@ -476,8 +500,9 @@ function getTotalItemsLocalStorage(){
 
 function isSelected(id){
     selected_items = JSON.parse(localStorage.getItem(ITEMS_KEY))
-    if(selected_items != null) {
+    if(selected_items) {
         var isSelected = selected_items.find(item => item.id === id)
+        console.log(isSelected)
         return isSelected
     }
     
@@ -521,9 +546,9 @@ console.log(pro)
 console.log(products2)
 
 
-
-
-
+function hideCheckOut(){
+    document.getElementById("background").click()
+}
 
 
 
@@ -553,6 +578,7 @@ function getProductById(id){
 }
 
 console.log(getProductById(1))
+
 
 
 
