@@ -1,6 +1,12 @@
+:root{
+    --border-radius: 4px;
+}
+
+
 body{
     z-index: 0;
     overflow: auto;
+    background-color: black;
 }
 
 span{
@@ -8,31 +14,39 @@ span{
     margin-right: 20px;
 }
 
-h1{
-    background-color: green;
-}
-
 .container{
     text-align: center;
     padding: 10px;
     z-index: 1;
     position: relative;
-}
-
-.title-container{
+    border-radius: 4px;
+    background-image: url(images/intro_cream_of_crop.jpg);
     -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
 }
 
+.title-container{
+    background: rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    padding: 10px;
+    border-radius: 4px;
+}
+
 h1{
-    background-color: honeydew;
+    background: rgba(255, 255, 255, 0.7);
     padding: 10px;
     width: 60%;
     left: 0;
     right: 0;
     margin: auto;
     display: inline-block;
+    border-radius: var(--border-radius);
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
 }
 /*
 .checkout-btn{
@@ -66,6 +80,7 @@ h1{
     padding: 10px 80px;
     transition: all .2s;
     border-radius: 4px;
+    color: white;
 }
 
 .checkout-btn:hover{
@@ -291,4 +306,8 @@ tr td div {
     cursor: pointer;
     transform: scale(1);
     font-size: large;
+}
+
+.picked_item{
+    padding: 10px;
 }

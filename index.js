@@ -19,6 +19,7 @@ function addItem({id, name, price, quantity}){
     selected_items.push({id:id, name:name, price:price, quantity:1})
 }
 
+/*
 function removeItem(name){
     selected_items = JSON.parse(localStorage.getItem(ITEMS_KEY))
     console.log("remove items function called...####")
@@ -32,6 +33,23 @@ function removeItem(name){
         })
     }
 }
+*/
+
+function removeItem(id){
+    selected_items = JSON.parse(localStorage.getItem(ITEMS_KEY))
+    console.log("remove items function called...####")
+    if(selected_items != null){
+        console.log("selected items are not null")
+        selected_items.find((item, index) => {
+            if(item.id == id){
+                selected_items.splice(index, 1)
+                return item
+            }
+        })
+    }
+}
+
+
 
 function save(){
     localStorage.setItem(ITEMS_KEY, JSON.stringify(selected_items))
@@ -91,7 +109,7 @@ function onCheckoutClick(){
             //popup_container.style.opacity = "1"
             updateTotalItems()
             updateTotalPrice()
-            updateBabage(getTotalItemsLocalStorage())
+            updateBabage(getItemsLocalStorage())
         }
         else{
             if(popup_container.style.visibility == "visible"){
@@ -107,7 +125,7 @@ function onCheckoutClick(){
                 //popup_container.style.opacity = "1"
                 updateTotalItems()
                 updateTotalPrice()
-                updateBabage(getTotalItemsLocalStorage())
+                updateBabage(getItemsLocalStorage())
             }
         }
     }
@@ -117,12 +135,17 @@ function onCheckoutClick(){
 
 function isCartEmpty(){
     selected_items = JSON.parse(localStorage.getItem(ITEMS_KEY))
-    if(selected_items == null){
-        document.getElementsByClassName("order-now")[0].disabled = true
-        alert("disable place order")
+    console.log(selected_items)
+
+    if(selected_items.length == 0){
+        //document.getElementsByClassName("order-now")[0].disabled = true
+        //alert("disable place order")
         return true
     }
-    return false
+    else{
+        return false
+    }
+    
 }
 
 function fetchCartItems() {
@@ -163,7 +186,7 @@ function generatePickedItemElement(index, {id, name , price, quantity}){
                             <td><div>${price}</div></td>
                             <td><div><input id="${id}" class="quantity" name="quantity" type="number" value="${quantity}" min="1" max="${getProductById(id).quantity}" onChange="onQuantityChange(event)" style="width: 40px;"></td>
                             </div><td>
-                            <div><button class="remove-item">remove</button></div>
+                            <div><button id="${id}" class="remove-item">remove</button></div>
                             </td>
                     `
     table_row.innerHTML = content
@@ -190,7 +213,7 @@ document.addEventListener('click', (event) => {
             
             addItem(product)
             save()
-            updateBabage(getTotalItemsLocalStorage())
+            updateBabage(getItemsLocalStorage())
         }
         else{
             alert("The item is aleary exist in Cart.")
@@ -213,35 +236,23 @@ document.addEventListener('click', (event) => {
     }
 
     if(event.target.className == "remove-item") {
-        
+        var id = parseInt(event.target.getAttribute("id"))
         var productRow = event.target.parentElement.parentElement.parentElement
         productRow.classList.remove("active")
+
+        removeItem(id)
+        save()
+
         setTimeout(() => {
             productRow.remove()
+            console.log(isCartEmpty())
         }, 500);
 
-       
-
-        /*setTimeout(() => {
-            productRow.style.setProperty("height", "0px")
-            //productRow.remove()
-        }, 1000);
-        */
-        //productRow.style.setProperty("visibility", "hiden")
-        /*
-        event.target.parentElement.parentElement.remove()
-        
-        
-        
-        updateTotalItems()
+        updateTotalItems(event)
         updateTotalPrice()
-        //isCartEmpty()
+        updateBabage(getItemsLocalStorage())
 
-        var name = event.target.parentElement.parentElement.children[1].innerText
-        console.log(name)
-        removeItem(name)
-        save()
-        updateBabage(getTotalItemsLocalStorage())*/
+        
     }
 
     if(event.target.className == "popup_back-Container"){
@@ -284,6 +295,21 @@ function getTotalItems(){
     return quantity
 }
 
+function getTotalItemsLocalStorage() {
+    var totalItems = 0 
+    selected_items = JSON.parse(localStorage.getItem(ITEMS_KEY))
+    selected_items.forEach(product => {
+        totalItems += product.quantity
+    })
+    return totalItems
+}
+
+function getItemsLocalStorage() {
+    selected_items = JSON.parse(localStorage.getItem(ITEMS_KEY))
+    return selected_items.length
+}
+
+/*
 function updateTotalItems() {
     var total = 0
     var totalItems = getTotalItems()
@@ -308,6 +334,21 @@ function updateTotalItems() {
 
     var total_items = document.getElementsByName("total-items")[0]
     total_items.innerText = total
+}
+*/
+
+function updateTotalItems(event) {
+    console.log(event)
+    if(event) {
+        var inputValue = parseInt(event.target.value)
+        var productId = parseInt(event.target.getAttribute("id"))
+        event.target.value = getQuantityFromInvalidQuantity(productId, inputValue)
+    }
+
+    var totalItems = getTotalItemsLocalStorage()
+    console.log(totalItems)
+    var total_items = document.getElementsByName("total-items")[0]
+    total_items.innerText = totalItems
 }
 
 if(document.readyState != "complete"){
@@ -338,7 +379,7 @@ function onQuantityChange(event) {
 
     updateQuantityLocalStorage(id, getQuantityFromInvalidQuantity(id, quantity))
     save()
-    updateTotalItems()
+    updateTotalItems(event)
     updateTotalPrice()
     //updateBabage(getTotalItemsLocalStorage())
 }
@@ -422,7 +463,7 @@ function updateBabage(number = 0){
 
 
 
-
+/*
 function getTotalItemsLocalStorage(){
     selected_items = JSON.parse(localStorage.getItem(ITEMS_KEY))
     if(selected_items != null) {
@@ -431,6 +472,7 @@ function getTotalItemsLocalStorage(){
     }
     
 }
+*/
 
 function isSelected(id){
     selected_items = JSON.parse(localStorage.getItem(ITEMS_KEY))
@@ -517,4 +559,4 @@ console.log(getProductById(1))
 
 
 
-updateBabage(getTotalItemsLocalStorage())
+updateBabage(getItemsLocalStorage())
