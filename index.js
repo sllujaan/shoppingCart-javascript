@@ -80,6 +80,7 @@ products.forEach(product => {
 //container.append(getItemsContainer({"name": "Wheat", "price": "2.35"}))
 //console.log(items_container)
 
+/*
 
 function getItemsContainer({id, name, price, imgSrc}){
     var items_container = document.createElement('div')
@@ -92,6 +93,35 @@ function getItemsContainer({id, name, price, imgSrc}){
                     <div class="info">Name: ${name}</div>
                     <div class="info">price: ${price}$</div>
                     <div class="info"><button class="add_to_cart">Add To Cart!</button></div>
+                    </div>`
+    items_container.innerHTML = content
+    return items_container
+}
+*/
+
+
+function getItemsContainer({id, name, price, imgSrc}){
+
+    var selectedProduct
+    if(isSelected(id)){
+        selectedProduct = "moveCover"
+    }
+
+    var items_container = document.createElement('div')
+    items_container.classList.add('items-Container')
+    
+    var content = `<div class="image-container">
+                    <img class="avatar" src="images/${imgSrc}" alt="photo">
+                    </div>
+                    <div class="info-container" id="${id}">
+                    <div class="info productName">Name: ${name}</div>
+                    <div class="info productPrice">price: ${price}$</div>
+                    <div class="info">
+                        <div class="add_to_cart" onClick="onClickAddToCart(event)" >
+                            <img class="imageOK" src="images/okEdited.png" alt="ok">
+                            <div class="cover ${selectedProduct}">Add To Cart!</div>
+                        </div>
+                    </div>
                     </div>`
     items_container.innerHTML = content
     return items_container
@@ -235,9 +265,15 @@ document.addEventListener('click', (event) => {
     console.log(event.target.parentElement)
     console.log(event.target.className)
 
-    if(event.target.className == "add_to_cart") {
+    if(event.target.parentElement.className == "add_to_cart" || event.target.className == "add_to_cart" ) {
+        var parent
+        if(event.target.className == "add_to_cart"){
+            parent = event.target.parentElement.parentElement
+        }
+        else{
+            parent = event.target.parentElement.parentElement.parentElement
+        }
         
-        var parent = event.target.parentElement.parentElement
         console.log(parent)
         var id = parseInt(parent.getAttribute("id"))
         var product = getProductById(id)
@@ -578,11 +614,23 @@ function hideCheckOut(){
 
 
 
+function onClickAddToCart(event){
+    if(event.target.classList.contains("cover")) {
+        event.target.classList.add("moveCover")
+        setTimeout(() => {
+            event.target.remove()
+        }, 1000);
+    }
+    
+}
 
 
+/*
 
+var cover = document.getElementsByClassName("add_to_cart")[0].getElementsByClassName("cover")[0]
+console.log(cover)
 
-
+*/
 
 
 

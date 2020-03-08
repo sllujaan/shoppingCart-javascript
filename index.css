@@ -113,11 +113,24 @@ h1{
     overflow: hidden;
 }
 
+/*
+.info-container{
+    background-color: chocolate;
+    width: 290px;
+    height: 150px;
+    display: block;
+    margin: 5px;
+    text-align: center;
+}
+*/
+
+
 .info-container{
     width: 290px;
     height: 150px;
     display: block;
     margin: 5px;
+    text-align: center;
 }
 
 
@@ -126,7 +139,8 @@ h1{
     cursor: pointer;
 }
 
-.info-container div{
+
+.info-container, .productName, .productPrice{
     color: black; font-family: 'Rouge Script', cursive; font-size: 21px; font-weight: normal; line-height: 18px;  text-align: center; text-shadow: 1px 1px 2px #082b34;
 }
 
@@ -137,7 +151,7 @@ h1{
 .popup-container{
     background-color: white;
     width: 50%;
-    height: 600px;
+    height: 700px;
     text-align: center;
     right: 0;
     left: 0;
@@ -305,6 +319,7 @@ tr td div {
     font-size: large;
 }
 
+/*
 .add_to_cart{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -324,6 +339,8 @@ tr td div {
     font-size: large;
 }
 
+*/
+
 .picked_item{
     padding: 10px;
 }
@@ -333,3 +350,68 @@ tr td div {
     height: 40px;
     border-radius: 4px;
 }
+
+
+.add_to_cart{
+    position: relative;
+    width: 220px;
+    height: 40px;
+    background-color: black;
+    transition: all 1s;
+    line-height: 40px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 4px;
+
+
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+-moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+
+}
+
+.add_to_cart:hover{
+    font-size: large;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.imageOK{
+    position: relative;
+    width: calc(inherit - 50%);
+    height: inherit;
+}
+
+.cover{
+    background-color: orange;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    transition: all 1s;
+    text-align: center;
+    line-height: inherit;
+    top: 0;
+
+
+
+
+    color: black;
+    font-family: 'Rouge Script', cursive;
+    font-size: 21px;
+    font-weight: normal;
+    text-align: center;
+    text-shadow: 1px 1px 2px #082b34;
+    
+}
+
+.moveCover {
+    transition: all 1s;
+    transform: translateX(220px);
+    font-size: large;
+}
+
+
