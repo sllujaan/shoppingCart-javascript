@@ -327,3 +327,9 @@ tr td div {
 .picked_item{
     padding: 10px;
 }
+
+.cartProductImg{
+    width: 50px;
+    height: 40px;
+    border-radius: 4px;
+}

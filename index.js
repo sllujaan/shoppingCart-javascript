@@ -18,16 +18,17 @@ const products = [
 console.log(products)
 
 var selected_items = [];
+var Order = [];
 const ITEMS_KEY = "products.key";
 
 
 
-function addItem({id, name, price, quantity}){
+function addItem({id, name, price, imgSrc}){
     //var id = Date.now();
     if(selected_items == null){
         selected_items = []
     }
-    selected_items.push({id:id, name:name, price:price, quantity:1})
+    selected_items.push({id:id, name:name, price:price, quantity:1, imgSrc:imgSrc})
 }
 
 /*
@@ -102,7 +103,7 @@ function getItemsContainer({id, name, price, imgSrc}){
 function onCheckoutClick(){
     
     if(isCartEmpty()){
-        alert("no item")
+        alert("No items found.")
     }
     else{
         var picked_items = document.getElementsByClassName("picked-items")[0]
@@ -158,7 +159,7 @@ function isCartEmpty(){
         }
     }
     else{
-        return false
+        return true
     }
     
 }
@@ -192,12 +193,31 @@ function fetchCartItems() {
     
 }
 
+/*
 function generatePickedItemElement(index, {id, name , price, quantity}){
     
     var table_row = document.createElement('tr')
     table_row.classList.add("active")
     var content = `<td><div>${index}</div></td>
                             <td><div>${name}</div></td>
+                            <td><div>${price}$</div></td>
+                            <td><div><input id="${id}" class="quantity" name="quantity" type="number" value="${quantity}" min="1" max="${getProductById(id).quantity}" onChange="onQuantityChange(event)" style="width: 40px;"></td>
+                            </div><td>
+                            <div><button id="${id}" class="remove-item">remove</button></div>
+                            </td>
+                    `
+    table_row.innerHTML = content
+    return table_row
+}
+*/
+
+
+function generatePickedItemElement(index, {id, name , price, quantity, imgSrc}){
+    
+    var table_row = document.createElement('tr')
+    table_row.classList.add("active")
+    var content = `<td><div>${index}</div></td>
+                            <td><div> <img class="cartProductImg" src="images/${imgSrc}" alt="photo"> ${name}</div></td>
                             <td><div>${price}$</div></td>
                             <td><div><input id="${id}" class="quantity" name="quantity" type="number" value="${quantity}" min="1" max="${getProductById(id).quantity}" onChange="onQuantityChange(event)" style="width: 40px;"></td>
                             </div><td>
@@ -474,6 +494,9 @@ function orderNow(){
     var totalItems = document.getElementsByName("total-items")[0].innerText
     var totalPrice = document.getElementsByName("total-price")[0].innerText
 
+    selected_items = JSON.parse(localStorage.getItem(ITEMS_KEY))
+    Order = selected_items
+    console.log(Order)
     console.log("order placed successfully \ntotal items: "+totalItems+"\ntotal price: "+totalPrice)
     alert("order placed successfully \ntotal items: "+totalItems+"\ntotal price: "+totalPrice)
 }
