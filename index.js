@@ -117,7 +117,7 @@ function getItemsContainer({id, name, price, imgSrc}){
                     <div class="info productName">Name: ${name}</div>
                     <div class="info productPrice">price: ${price}$</div>
                     <div class="info">
-                        <div class="add_to_cart" onClick="onClickAddToCart(event)" >
+                        <div id="${id}" class="add_to_cart" onClick="onClickAddToCart(event)" >
                             <img class="imageOK" src="images/okEdited.png" alt="ok">
                             <div class="cover ${selectedProduct}">Add To Cart!</div>
                         </div>
@@ -326,6 +326,7 @@ document.addEventListener('click', (event) => {
         updateTotalPrice()
         updateBabage(getItemsLocalStorage())
 
+        unCheckRemovedItem(id)
         
     }
 
@@ -617,9 +618,10 @@ function hideCheckOut(){
 function onClickAddToCart(event){
     if(event.target.classList.contains("cover")) {
         event.target.classList.add("moveCover")
-        setTimeout(() => {
+        
+        /*setTimeout(() => {
             event.target.remove()
-        }, 1000);
+        }, 1000);*/
     }
     
 }
@@ -631,6 +633,16 @@ var cover = document.getElementsByClassName("add_to_cart")[0].getElementsByClass
 console.log(cover)
 
 */
+
+function unCheckRemovedItem(id) {
+    var addToCartBtn = document.getElementById(id).getElementsByClassName("cover")[0]
+    addToCartBtn.classList.remove("moveCover")
+}
+
+
+
+
+
 
 
 
