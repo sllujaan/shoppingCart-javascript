@@ -1,7 +1,8 @@
 :root{
     --border-radius: 4px;
+    --container-z-index: 1;
+    --popup-container-z-index: 10;
 }
-
 
 body{
     z-index: 0;
@@ -17,13 +18,14 @@ span{
 .container{
     text-align: center;
     padding: 10px;
-    z-index: 1;
+    z-index: var(--container-z-index);
     position: relative;
     border-radius: 4px;
     background-image: url(images/intro_cream_of_crop.jpg);
     -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    overflow: auto;
 }
 
 .title-container{
@@ -48,26 +50,6 @@ h1{
     -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
 }
-/*
-.checkout-btn{
-    background-color: white;
-    padding: 10px 15px;
-    border: none;
-    display: inline-block;
-    border-radius: 2px;
-    margin-left: 100px;
-    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
-.checkout-btn:hover{
-    background-color: khaki;
-}
-*/
 
 .checkout-btn{
     margin-top: 10px;
@@ -88,7 +70,6 @@ h1{
     transform: scale(1);
     font-size: large;
 }
-
 
 .items-Container{
     background-color: white;
@@ -111,19 +92,8 @@ h1{
     display: block;
     margin: 5px;
     overflow: hidden;
+    border-radius: 4px;
 }
-
-/*
-.info-container{
-    background-color: chocolate;
-    width: 290px;
-    height: 150px;
-    display: block;
-    margin: 5px;
-    text-align: center;
-}
-*/
-
 
 .info-container{
     width: 290px;
@@ -139,9 +109,14 @@ h1{
     cursor: pointer;
 }
 
-
 .info-container, .productName, .productPrice{
-    color: black; font-family: 'Rouge Script', cursive; font-size: 21px; font-weight: normal; line-height: 18px;  text-align: center; text-shadow: 1px 1px 2px #082b34;
+    color: black;
+    font-family: 'Rouge Script', cursive;
+    font-size: 21px;
+    font-weight: normal;
+    line-height: 18px;
+    text-align: center;
+    text-shadow: 1px 1px 2px #082b34;
 }
 
 .info{
@@ -151,12 +126,12 @@ h1{
 .popup-container{
     background-color: white;
     width: 50%;
-    height: 700px;
+    height: 80%;
     text-align: center;
     right: 0;
     left: 0;
     margin: auto;
-    z-index: 3;
+    z-index: var(--popup-container-z-index);
     top: 10%;
     position: fixed;
     -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
@@ -190,10 +165,10 @@ h1{
     }
 }
 
-
 .avatar{
     height: inherit;
     width: auto;
+    border-radius: 4px;
 }
 
 .popup_back-Container{
@@ -271,7 +246,6 @@ tr td div {
     transition: all 1s;
 }
 
-
 .totals-table{
     margin-top: 10px;
 }
@@ -299,7 +273,6 @@ tr td div {
     font-size: large;
 }
 
-
 .remove-item{
     margin-top: 10px;
     color: white;
@@ -319,28 +292,6 @@ tr td div {
     font-size: large;
 }
 
-/*
-.add_to_cart{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color: orange;
-    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    border: none;
-    padding: 10px 80px;
-    transition: all .2s;
-    border-radius: 4px;
-}
-
-.add_to_cart:hover{
-    cursor: pointer;
-    transform: scale(1);
-    font-size: large;
-}
-
-*/
-
 .picked_item{
     padding: 10px;
 }
@@ -350,7 +301,6 @@ tr td div {
     height: 40px;
     border-radius: 4px;
 }
-
 
 .add_to_cart{
     position: relative;
@@ -362,12 +312,9 @@ tr td div {
     text-align: center;
     overflow: hidden;
     border-radius: 4px;
-
-
     left: 0;
     right: 0;
     margin: auto;
-
     -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
 -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
 box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
@@ -395,10 +342,6 @@ box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     text-align: center;
     line-height: inherit;
     top: 0;
-
-
-
-
     color: black;
     font-family: 'Rouge Script', cursive;
     font-size: 21px;
