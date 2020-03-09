@@ -1,6 +1,7 @@
 :root{
     --border-radius: 4px;
     --container-z-index: 1;
+    --popup_back-Container-z-index: 5;
     --popup-container-z-index: 10;
 }
 
@@ -177,7 +178,7 @@ h1{
     width: 100%;
     top: 0;
     bottom: 0;
-    z-index: 2;
+    z-index: var(--popup_back-Container-z-index);
     visibility: hidden;
     position: fixed;
 }
