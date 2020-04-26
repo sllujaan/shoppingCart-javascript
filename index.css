@@ -237,13 +237,17 @@ h2 i:hover {
 .babage{
     background-color: black;
     color: white;
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
     position: absolute;
     top: -5;
-    right: -5;
+    right: -20;
     border-radius: 50%;
     padding: 2px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .picked-items{
