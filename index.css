@@ -1,5 +1,6 @@
 :root{
     --border-radius: 4px;
+    --border-radius-default: 10px;
     --container-z-index: 1;
     --popup_back-Container-z-index: 5;
     --popup-container-z-index: 10;
@@ -9,6 +10,8 @@ body{
     z-index: 0;
     overflow: auto;
     background-color: black;
+    padding: 0;
+    margin: 0;
 }
 
 span{
@@ -23,23 +26,30 @@ span{
     position: relative;
     border-radius: 4px;
     background-image: url(images/intro_cream_of_crop.jpg);
+    /*
     -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
     box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    */
     overflow: auto;
+
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
 }
 
 .title-container{
-    background: rgba(255, 255, 255, 0.5);
-    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    background:rgba(255, 255, 255, 0.473);
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
     padding: 10px;
     border-radius: 4px;
 }
 
 h1{
-    background: rgba(255, 255, 255, 0.7);
+    background: #0336FF;
+    color: white;
     padding: 10px;
     width: 60%;
     left: 0;
@@ -47,18 +57,18 @@ h1{
     margin: auto;
     display: inline-block;
     border-radius: var(--border-radius);
-    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
 }
 
 .checkout-btn{
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: orangered;
-    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    background-color: #FF0266;
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
     border: none;
     padding: 10px 80px;
     transition: all .2s;
@@ -68,8 +78,6 @@ h1{
 
 .checkout-btn:hover{
     cursor: pointer;
-    transform: scale(1);
-    font-size: large;
 }
 
 .items-Container{
@@ -80,11 +88,11 @@ h1{
     display: inline-block;
     padding: 10px;
     margin: 5px;
-    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
     border-radius: 4px;
-    transition: all 1s;
+    transition: all .2s;
 }
 
 .image-Container{
@@ -106,7 +114,9 @@ h1{
 
 
 .items-Container:hover{
-    transform: scale(1.1);
+    
+    transform: scale(1.02);
+    
     cursor: pointer;
 }
 
@@ -135,9 +145,9 @@ h1{
     z-index: var(--popup-container-z-index);
     top: 10%;
     position: fixed;
-    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
     visibility: hidden;
     opacity: 0;
     overflow: auto;
@@ -147,7 +157,7 @@ h1{
 
 @media only screen and (max-width: 700px){
     .popup-container{
-        width: 90%;
+        width: 95%;
     }
 }
 @media only screen and (min-width: 700px) and (max-width: 800px){
@@ -211,16 +221,16 @@ table {
     right: 0;
     margin: auto;
     width: inherit;
-    transition: all 1s;
+    transition: all .2s;
     border-collapse: collapse;
 
 }
 
 tr {
-    transition: all 1s;
-    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    transition: all .2s;
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
 }
 
 td {
@@ -235,16 +245,15 @@ tr td {
 tr td div {
     max-height: 0;
     overflow: hidden;
-    transition: all .5s;
+    transition: all .2s;
     box-sizing: border-box;
     padding: 0 10px;
 }
 
 .active td div{
     max-height: 100px;
-    max-height: 100px;
-    padding: 10px 10px;
-    transition: all 1s;
+    padding: 10px 0;
+    transition: all .2s;
 }
 
 .totals-table{
@@ -258,39 +267,46 @@ tr td div {
 .order-now{
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: orange;
-    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    background-color: #FF0266;
+
     border: none;
     padding: 10px 80px;
     transition: all .2s;
     border-radius: 4px;
+
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+
+    font-size: large;
+    font-weight: bolder;
 }
 
 .order-now:hover{
     cursor: pointer;
-    transform: scale(1);
-    font-size: large;
 }
 
 .remove-item{
     margin-top: 10px;
-    color: white;
-    background-color: red;
-    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    color: black;
+    background-color: #FF0266;
+
     border: none;
     padding: 5px 10px;
     transition: all .2s;
-    border-radius: 4px;
+    border-radius: var(--border-radius-default);
+
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
 }
 
 .remove-item:hover{
     cursor: pointer;
+    /*
     transform: scale(1);
     font-size: large;
+    */
 }
 
 .picked_item{
@@ -308,7 +324,7 @@ tr td div {
     width: 220px;
     height: 40px;
     background-color: black;
-    transition: all 1s;
+    
     line-height: 40px;
     text-align: center;
     overflow: hidden;
@@ -316,16 +332,14 @@ tr td div {
     left: 0;
     right: 0;
     margin: auto;
-    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
--moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
+    -webkit-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    -moz-box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
+    box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px 0px;
 
 }
 
 .add_to_cart:hover{
     font-size: large;
-    cursor: pointer;
-    transform: scale(1.1);
 }
 
 .imageOK{
@@ -335,11 +349,11 @@ box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
 }
 
 .cover{
-    background-color: orange;
+    background-color: #FF0266;
     position: absolute;
     width: inherit;
     height: inherit;
-    transition: all 1s;
+    transition: all .1s;
     text-align: center;
     line-height: inherit;
     top: 0;
@@ -353,7 +367,9 @@ box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.43);
 }
 
 .moveCover {
+    /*
     transition: all 1s;
+    */
     transform: translateX(220px);
     font-size: large;
 }
